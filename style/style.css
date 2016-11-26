@@ -23,7 +23,8 @@ h3 {
 }
 
 ul {
-  list-style: square;
+  list-style: none;
+  padding: 0;
 }
 
 a:link, a:visited {
@@ -40,6 +41,10 @@ a:hover, a:active {
   border-bottom: 1px solid;
 }
 
+a.img:link, a.img:visited, a.img:hover, a.img:active {
+  border: none;
+}
+
 .small-box-container {
   display: flex;
   flex-direction: column;
@@ -47,16 +52,21 @@ a:hover, a:active {
   font-size: 120%;
 }
 
-.small-box, .big-box {
-  margin: 12px 6px 6px 6px;
-  padding: 20px 6px 6px 6px;
-  border-style: dashed;
-  border-color: #666;
-  border-width: 1px 0 0 0;
-}
-
 .small-box {
   text-align: center;
+  padding: 20px 6px 6px 6px;
+  margin: 12px 6px 6px 6px;
+}
+
+.big-box {
+  margin: 12px 6px 6px 6px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.big-box section {
+  margin-bottom: 24px;
 }
 
 .big-box h3, .small-box h3 {
@@ -67,7 +77,7 @@ a:hover, a:active {
   display: block;
   text-align: center;
   border: none;
-  margin: 6px auto;
+  margin: 12px auto 30px auto;
   padding: 12px;
   color: #333;
   background: #eee;
@@ -106,6 +116,9 @@ a:hover, a:active {
   font-size: 20px;
 }
 
+.visible-lg {
+  display: none;
+}
 
 @media (min-width: 600px) {
   .small-box-container {
@@ -146,24 +159,67 @@ a:hover, a:active {
     border: none;
   }
 
+  .big-box h3 {
+    text-align: left;
+  }
+
+  .big-box section {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 48px;
+  }
+  .big-box section:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .big-box {
+    flex-direction: row;
+  }
+
+  .big-box section {
+    padding: 0 24px;
+  }
+
+  .visible-lg {
+    display: initial;
+  }
+
+  .visible-sm {
+    display: none;
+  }
+}
+
+@media (min-width: 1250px) {
   .big-box {
     width: 960px;
     margin: 12px auto;
   }
 
-  .big-box h3 {
-    text-align: left;
+  .big-box {
+    width: 80%;
+    justify-content: space-around;
   }
-}
 
-@media (min-width: 1250px) {
-  .small-box-container {
-    padding: 90px 10%
+  .big-box section {
+    padding: 24px;
+    max-width: 500px;
   }
 }
 
 @media (min-width: 1600px) {
   .small-box-container {
     padding: 120px 20%;
+  }
+
+  .big-box {
+    width: 80%;
+    justify-content: space-around;
+  }
+
+  .big-box section {
+    padding: 48px;
+    max-width: 500px;
   }
 }
