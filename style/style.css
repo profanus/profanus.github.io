@@ -1,10 +1,9 @@
 body {
   display: flex;
   flex-direction: column;
-  background: #333;
   color: #eee;
   font-family: 'Open Sans', sans-serif;
-  background: #333 url('/img/header.jpg') center top no-repeat;
+  background: #000 url('/img/header.jpg') center top no-repeat;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,45 +45,39 @@ a.img:link, a.img:visited, a.img:hover, a.img:active {
   border: none;
 }
 
-.small-box-container {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   font-size: 120%;
-}
-
-.small-box-container.under-title {
-  background: linear-gradient(to top, rgba(51,51,51,1) 20%,rgba(51,51,51,0.84) 70%,rgba(51,51,51,0) 100%);
-}
-
-.small-box {
-  text-align: center;
-  padding: 20px 6px 6px 6px;
-  margin: 0;
-}
-
-.big-box {
-  margin: 0;
   padding: 24px;
-  display: flex;
-  flex-direction: column;
-
-  background: #333;
 }
 
-.big-box section {
+.container section h3 {
+  margin: 0;
+}
+
+.container.small section {
+  text-align: center;
+}
+
+.container.large section {
   margin-bottom: 24px;
 }
 
-.big-box section img {
+.container.large section:last-child {
+  margin-bottom: 0;
+}
+
+.container.large section img {
   max-width: 100%;
 }
 
-.big-box h3, .small-box h3 {
-  margin: 0;
+.under-title {
+  background: linear-gradient(to top, rgba(0, 0, 0,1) 20%,rgba(0, 0, 0,0.84) 70%,rgba(51,51,51,0) 100%);
 }
 
-.small-box .action-button {
+a.action-button {
   display: block;
   text-align: center;
   border: none;
@@ -100,13 +93,13 @@ a.img:link, a.img:visited, a.img:hover, a.img:active {
   text-shadow: 0 1px 3px white;
 }
 
-.small-box .action-button:hover {
+a.action-button:hover {
   box-shadow: 2px 5px 5px #222;
   background: white;
   color: black;
 }
 
-.small-box .action-button:active {
+a.action-button:active {
   box-shadow: none;
   background: #ccc;
 }
@@ -132,86 +125,55 @@ a.img:link, a.img:visited, a.img:hover, a.img:active {
 }
 
 @media (min-width: 600px) {
-  .small-box-container, .small-box-container.under-title {
+  .container.small {
     flex-direction: row;
-    margin: 60px 0 60px 0;
-    background: #eee;
     padding: 60px 0;
   }
 
-  .small-box {
-    color: #333;
-    padding: 24px
+  .container.small section {
+    padding: 24px;
+    min-width: 280px;
+    box-sizing: border-box;
+    flex: 1;
   }
 
-  .small-box .action-button {
-    color: #eee;
-    background-color: #555;
-    text-shadow: 0 1px 3px #222;
-    margin: 40px auto 0 auto;
+  .container.large h3 {
+    text-align: left;
   }
 
-  .small-box .action-button:hover {
+  .container.large section {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 48px;
+  }
+  .container.large section:last-child {
+    margin-bottom: 0;
+  }
+
+  section.call-for-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  a.action-button {
+    width: 100%;
+  }
+
+  a.action-button:hover {
     background-color: #333;
     color: white;
     box-shadow: 1px 1px 1px #222;
   }
 
-  .small-box .action-button:active {
+  a.action-button:active {
     background: #666;
     text-shadow: none;
   }
 
-  .small-box, .big-box {
-    border: none;
-  }
-
-  .small-box:last-child {
-    border: none;
-  }
-
-  .big-box h3 {
-    text-align: left;
-  }
-
-  .big-box section {
-    max-width: 600px;
-    margin: 0 auto;
-    margin-bottom: 48px;
-  }
-  .big-box section:last-child {
-    margin-bottom: 0;
-  }
 }
 
-@media (min-width: 1024px) {
-  .big-box {
-    flex-direction: row;
-  }
-
-  .big-box section {
-    padding: 0 24px;
-  }
-
-
-}
-
-@media (min-width: 1250px) {
-  .big-box {
-    width: 960px;
-    margin: 12px auto;
-  }
-
-  .big-box {
-    width: 80%;
-    justify-content: space-around;
-  }
-
-  .big-box section {
-    padding: 24px;
-    max-width: 500px;
-  }
-
+@media (min-width: 1450px) {
   .visible-lg {
     display: initial;
   }
@@ -219,20 +181,17 @@ a.img:link, a.img:visited, a.img:hover, a.img:active {
   .visible-sm {
     display: none;
   }
+
+  .container.large {
+    flex-direction: row;
+  }
 }
 
-@media (min-width: 1600px) {
-  .small-box-container, .small-box-container.under-title {
-    padding: 120px 10%;
+@media (min-width: 1900px) {
+  .container.large {
+    padding: 50px 10%
   }
-
-  .big-box {
-    width: 80%;
-    justify-content: space-around;
-  }
-
-  .big-box section {
-    padding: 48px;
-    max-width: 500px;
+  .container.small {
+    padding: 100px 10%;
   }
 }
