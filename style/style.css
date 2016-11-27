@@ -4,6 +4,7 @@ body {
   color: #eee;
   font-family: 'Open Sans', sans-serif;
   background: #000 url('/img/header.jpg') center top no-repeat;
+  padding-bottom: 120px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -49,9 +50,12 @@ a.img:link, a.img:visited, a.img:hover, a.img:active {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   font-size: 120%;
   padding: 24px;
 }
+
+
 
 .container section h3 {
   margin: 0;
@@ -105,9 +109,12 @@ a.action-button:active {
 }
 
 .page-title {
-  margin: 0 0 12px 0;
+  margin: 50px 0 30px;
   padding: 0;
   border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .page-title .title {
@@ -125,6 +132,10 @@ a.action-button:active {
 }
 
 @media (min-width: 600px) {
+  .container {
+    padding: 0 48px;
+  }
+
   .container.small {
     flex-direction: row;
     padding: 60px 0;
@@ -182,14 +193,30 @@ a.action-button:active {
     display: none;
   }
 
+  .container {
+    margin-top: 60px;
+  }
+
   .container.large {
     flex-direction: row;
+    background-color: #333;
+    padding: 150px 24px;
+    min-height: 20vh;
+  }
+
+  .page-title {
+    height: 432px;
+    margin: 0;
+  }
+
+  .page-title .subtitle {
+    margin: 0;
   }
 }
 
 @media (min-width: 1900px) {
   .container.large {
-    padding: 50px 10%
+    padding: 150px 10%;
   }
   .container.small {
     padding: 100px 10%;
