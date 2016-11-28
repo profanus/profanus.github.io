@@ -22,10 +22,22 @@ h2 {
 h3 {
   font-size: 30px;
 }
+h4, h5, h6 {
+  font-size: 25px;
+}
+
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
 
 ul {
-  list-style: none;
-  padding: 0;
+  list-style: square;
+}
+
+li {
+  margin: 12px 0;
 }
 
 a:link, a:visited {
@@ -50,12 +62,14 @@ a.img:link, a.img:visited, a.img:hover, a.img:active {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  
   font-size: 120%;
   padding: 24px;
 }
 
-
+.container.small {
+  align-items: center;
+}
 
 .container section h3 {
   margin: 0;
@@ -71,10 +85,6 @@ a.img:link, a.img:visited, a.img:hover, a.img:active {
 
 .container.large section:last-child {
   margin-bottom: 0;
-}
-
-.container.large section img {
-  max-width: 100%;
 }
 
 .under-title {
@@ -106,6 +116,11 @@ a.action-button:hover {
 a.action-button:active {
   box-shadow: none;
   background: #ccc;
+}
+
+ul.raid-logs {
+  list-style: none;
+  padding: 0;
 }
 
 .page-title {
@@ -148,13 +163,13 @@ a.action-button:active {
     flex: 1;
   }
 
-  .container.large h3 {
+  .container.large h3, .container.large h4, .container.large h5 {
     text-align: left;
   }
 
   .container.large section {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 24px auto;
     margin-bottom: 48px;
   }
   .container.large section:last-child {
@@ -193,8 +208,8 @@ a.action-button:active {
     display: none;
   }
 
-  .container {
-    margin-top: 60px;
+  .container.small {
+    margin: 60px 0;
   }
 
   .container.large {
@@ -202,6 +217,26 @@ a.action-button:active {
     background-color: #333;
     padding: 150px 24px;
     min-height: 20vh;
+
+    line-height: 1.9em;
+  }
+
+  .container.code-of-conduct {
+    background-color: black;
+    margin-top: -130px;
+    padding-top: 70px;
+  }
+
+  .container.code-of-conduct section {
+    max-width: 760px;
+  }
+
+  .container.large p {
+    margin-bottom: 2em;
+  }
+
+  .container section.early-lg {
+    order: -1;
   }
 
   .page-title {
