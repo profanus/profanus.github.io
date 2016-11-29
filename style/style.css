@@ -45,8 +45,6 @@ a:link, a:visited {
   text-decoration: none;
   border-bottom: 1px dashed;
   transition: color 1s, border 1s;
-  margin: 5px;
-  display: inline-block;
 }
 
 a:hover, a:active {
@@ -68,7 +66,7 @@ a.img:link, a.img:visited, a.img:hover, a.img:active {
 }
 
 .container.small {
-  align-items: center;
+  align-items: stretch;
 }
 
 .container section h3 {
@@ -154,6 +152,7 @@ ul.raid-logs {
   .container.small {
     flex-direction: row;
     padding: 60px 0;
+    justify-content: space-around;
   }
 
   .container.small section {
@@ -172,7 +171,7 @@ ul.raid-logs {
     margin: 24px auto;
     margin-bottom: 48px;
   }
-  .container.large section:last-child {
+  .container.large section:zlast-child {
     margin-bottom: 0;
   }
 
@@ -208,6 +207,10 @@ ul.raid-logs {
     display: none;
   }
 
+  .container {
+    line-height: 1.9em;
+  }
+
   .container.small {
     margin: 60px 0;
   }
@@ -217,18 +220,12 @@ ul.raid-logs {
     background-color: #333;
     padding: 150px 24px;
     min-height: 20vh;
-
-    line-height: 1.9em;
   }
 
-  .container.code-of-conduct {
+  .container.large.contrast {
     background-color: black;
     margin-top: -130px;
     padding-top: 70px;
-  }
-
-  .container.code-of-conduct section {
-    max-width: 760px;
   }
 
   .container.large p {
