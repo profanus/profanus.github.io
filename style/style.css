@@ -52,8 +52,10 @@ a:hover, a:active {
   border-bottom: 1px solid;
 }
 
-a.img:link, a.img:visited, a.img:hover, a.img:active {
+a.img:link, a.img:visited, a.img:hover, a.img:active,
+a[name]:link, a[name]:visited, a[name]:hover, a[name]:active {
   border: none;
+  color: inherit;
 }
 
 .container {
