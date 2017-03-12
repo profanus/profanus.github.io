@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   color: #eee;
   font-family: 'Open Sans', sans-serif;
-  background: #000 url('/img/header.jpg') center top no-repeat;
+  background: #000 url('../img/header.jpg') center top no-repeat;
   padding-bottom: 120px;
 }
 
@@ -116,11 +116,6 @@ a.action-button:active {
   background: #ccc;
 }
 
-ul.raid-logs {
-  list-style: none;
-  padding: 0;
-}
-
 .page-title {
   margin: 50px 0 30px;
   padding: 0;
@@ -142,6 +137,34 @@ ul.raid-logs {
 
 .visible-lg {
   display: none;
+}
+
+#twitch-stream-section {
+  flex-direction: column;
+  align-items: center;  
+}
+
+#twitch-stream-section .streamers-container {
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-around;
+  padding: 0;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#twitch-stream-section h4 a {
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+#twitch-stream-section h4 {
+  margin: 10px 0;
+}
+
+#twitch-stream-section .streamer-overview {
+  margin-bottom: 50px;
+  min-width: 350px;
 }
 
 @media (min-width: 600px) {
@@ -196,6 +219,12 @@ ul.raid-logs {
     text-shadow: none;
   }
 
+}
+
+@media (min-width: 1200px) {
+  #twitch-stream-section {
+    padding: 0;
+  }
 }
 
 @media (min-width: 1450px) {
