@@ -5,7 +5,8 @@ var streamers = [
   "cl0udbourne",
   "echeloner",
   "embody1337",
-  "frank_smiles"
+  "frank_smiles",
+  "lassari86"
 ];
 
 var getJSON
