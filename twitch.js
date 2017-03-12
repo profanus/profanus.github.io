@@ -73,7 +73,7 @@ var getStreamerHtml = function(stream) {
 getTwitchStreams(streamers[0], function(streams) {
   var html = streams.map(getStreamerHtml).join("\r\n");
 
-  var title = "<h3>Watch us Live</h3>\r\n";
+  var title = "<h3><a name='watch-us-live'>Watch us Live</a></h3>\r\n";
   
   let element = document.getElementById("twitch-stream-section");
   element.innerHTML = title + "<section class='streamers-container'>\r\n" + html + "\r\n</section>";
