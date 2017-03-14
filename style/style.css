@@ -150,7 +150,7 @@ a.action-button:active {
   display: flex;
   flex-direction: row;  
   justify-content: space-around;
-  align-items: start;
+  align-items: center;
   padding: 0;
   flex-wrap: wrap;
   width: 100%;
@@ -169,15 +169,11 @@ a.action-button:active {
 
 #twitch-stream-section .streamer-overview {
   margin-bottom: 50px;
-  min-width: 350px;
-
   transform: none;
   transition: transform 150ms linear, opacity 300ms linear;
 }
 
 #twitch-stream-section .streamer-overview.not-live {
-  margin-bottom: 50px;
-  min-width: 350px;
   opacity: .5;
 }
 
@@ -187,7 +183,7 @@ a.action-button:active {
 }
 
 #twitch-stream-section .stream-title {
-  max-width: 350px;
+  max-width: 100%;
   font-size: 80%;
 }
 
@@ -241,6 +237,14 @@ a.action-button:active {
   a.action-button:active {
     background: #666;
     text-shadow: none;
+  }
+
+  #twitch-stream-section .streamer-overview.live {
+    min-width: 500px;
+  }
+
+  #twitch-stream-section .streamer-overview.not-live {
+    min-width: 350px;
   }
 
 }

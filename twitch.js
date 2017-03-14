@@ -47,7 +47,7 @@
           id: stream.channel.name,
           name: stream.channel.display_name,
           url: stream.channel.url,
-          preview: stream.preview.medium,
+          preview: stream.preview.template.replace("{width}", "480").replace("{height}", "270"),
           title: stream.channel.status,
           isLive: true
         };
@@ -81,7 +81,10 @@
         };
       });
 
-      return data.live.concat(notLive);
+      return {
+        live: data.live,
+        notLive: notLive
+      };
     });
              
   };
@@ -95,7 +98,7 @@
   var getStreamerHtml = function(stream) {
     return (
       "<div class='streamer-overview " + (stream.isLive ? "live" : "not-live") + "'>" +
-        "<h4>" + getLinkHtml(stream.url, stream.name) + (stream.isLive ? " (LIVE)" : "") + "</h4>" +
+        "<h4>" + getLinkHtml(stream.url, stream.name) + "</h4>" +
         "<p>" + 
           getLinkHtml(stream.url, "<img src='" + stream.preview + "' alt='Stream preview'>") + 
         "</p>" +
@@ -106,17 +109,26 @@
         : "") +
       "</div>"
     );
-  }
+  };
+
+  var getStreamContainerHtml = function(streams) {
+    var html = streams.map(getStreamerHtml).join('\r\n');
+
+    return "<section class='streamers-container'>" +
+             html +
+           "</section>";
+  };
 
   /* ACTUALLY DO STUFF */
 
   // add streamer section with live data
   getTwitchStreams(streamers[0]).then(function(streams) {
-    var html = streams.map(getStreamerHtml).join("\r\n");
+    var liveHtml = getStreamContainerHtml(streams.live);
+    var notLiveHtml = getStreamContainerHtml(streams.notLive);
 
-    var title = "<h3><a name='watch-us-live'>Watch us Live</a></h3>\r\n";
-    
-    containerElement.innerHTML = title + "<section class='streamers-container'>\r\n" + html + "\r\n</section>";
+    var title = "<h3><a name='watch-us-live'>Watch us Live</a>: " + streams.live.length + " streaming now</h3>\r\n";
+
+    containerElement.innerHTML = title + liveHtml + notLiveHtml;
   });
 
 })();
