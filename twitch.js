@@ -11,6 +11,7 @@
   ];
 
   var containerElement = document.getElementById("twitch-stream-section");
+  var callToActionElement = document.getElementById("call-to-action-container");
 
   // only support browsers with native promises (so no IE?)
   // progressive enhancement, so if you have them, we show the
@@ -126,9 +127,30 @@
     var liveHtml = getStreamContainerHtml(streams.live);
     var notLiveHtml = getStreamContainerHtml(streams.notLive);
 
-    var title = "<h3><a name='watch-us-live'>Watch us Live</a>: " + streams.live.length + " streaming now</h3>\r\n";
+    var liveStreamCount = streams.live.length;
+
+    var title = "<h3><a name='watch-us-live'>Watch us Live</a>: " + liveStreamCount + " streaming now</h3>\r\n";
 
     containerElement.innerHTML = title + liveHtml + notLiveHtml;
+
+    if (liveStreamCount) {
+      var smallActionButton = document.createElement('section');
+
+      var streamsWord = liveStreamCount + (liveStreamCount === 1 ? " of us is" : " of us are");
+      
+      smallActionButton.className = "call-to-action streaming-live";
+      smallActionButton.innerHTML =
+        "<h3>We're live!</h3>" +
+        "<p class='message'>" + streamsWord + " streaming now:</p>" +
+        "<a class='action-button' href='#" + containerElement.id + "'>View streams</a>";
+
+      var sibling = callToActionElement.children[1];
+      callToActionElement.insertBefore(smallActionButton, sibling);
+
+      document.body.className += "has-live-streamers";
+    }
+
+    containerElement.className += " loaded";
   });
 
 })();

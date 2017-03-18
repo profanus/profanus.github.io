@@ -1,3 +1,8 @@
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -62,8 +67,7 @@ a[name]:link, a[name]:visited, a[name]:hover, a[name]:active {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  
-  font-size: 120%;
+  /* font-size: 120%; */
   padding: 24px;
 }
 
@@ -102,15 +106,18 @@ a.action-button {
   border-radius: 3px;
   max-width: 200px;
   box-shadow: 1px 1px 1px #222;
-  transition: color 1s, border 1s, background 1s, box-shadow 1s;
+  transition: 300ms;
   text-transform: uppercase;
   text-shadow: 0 1px 3px white;
 }
 
-a.action-button:hover {
-  box-shadow: 2px 5px 5px #222;
+a.action-button:hover, a.action-button:focus {
+  box-shadow: 0px 0px 20px #555;
   background: white;
   color: black;
+  transform: scale(1.1);
+  font-size: 110%;
+  outline: none;
 }
 
 a.action-button:active {
@@ -119,7 +126,7 @@ a.action-button:active {
 }
 
 .page-title {
-  margin: 50px 0 30px;
+  margin: 0;
   padding: 0;
   border: none;
   display: flex;
@@ -141,12 +148,25 @@ a.action-button:active {
   display: none;
 }
 
+.streaming-live {
+  animation: fade-in 1s;
+}
+
 #twitch-stream-section {
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
+}
+
+#twitch-stream-section:not(.loaded) {
+  display: none;
+}
+
+#twitch-stream-section h3 {
+  animation: fade-in 1s;
 }
 
 #twitch-stream-section .streamers-container {
+  animation: fade-in 1s;
   display: flex;
   flex-direction: row;  
   justify-content: space-around;
@@ -214,11 +234,15 @@ a.action-button:active {
     margin: 24px auto;
     margin-bottom: 48px;
   }
-  .container.large section:zlast-child {
+  .container.large section:last-child {
     margin-bottom: 0;
   }
 
-  section.call-for-action {
+  .page-title {
+    margin: 50px 0 30px 0;
+  }
+
+  section.call-to-action {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -226,17 +250,6 @@ a.action-button:active {
 
   a.action-button {
     width: 100%;
-  }
-
-  a.action-button:hover {
-    background-color: #333;
-    color: white;
-    box-shadow: 1px 1px 1px #222;
-  }
-
-  a.action-button:active {
-    background: #666;
-    text-shadow: none;
   }
 
   #twitch-stream-section .streamer-overview.live {
@@ -247,6 +260,13 @@ a.action-button:active {
     min-width: 350px;
   }
 
+  .has-live-streamers #call-to-action-container {
+    flex-wrap: wrap;
+  }
+
+  .has-live-streamers #call-to-action-container .learn-about-us {
+    min-width: 100%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -264,6 +284,11 @@ a.action-button:active {
     display: none;
   }
 
+  .has-live-streamers #call-to-action-container .learn-about-us {
+    order: 1;
+    margin-top: 100px;
+  }
+
   .container {
     line-height: 1.9em;
   }
@@ -274,7 +299,7 @@ a.action-button:active {
 
   .container.large {
     flex-direction: row;
-    background-color: #333;
+    background-color: #111;
     padding: 150px 24px;
     min-height: 20vh;
   }
