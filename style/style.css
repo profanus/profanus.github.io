@@ -152,20 +152,16 @@ a.action-button:active {
   animation: fade-in 1s;
 }
 
-#twitch-stream-section {
+#watch-us-live {
   flex-direction: column;
   align-items: center;
 }
 
-#twitch-stream-section:not(.loaded) {
-  display: none;
-}
-
-#twitch-stream-section h3 {
+#watch-us-live h3 {
   animation: fade-in 1s;
 }
 
-#twitch-stream-section .streamers-container {
+#watch-us-live .streamers-container {
   animation: fade-in 1s;
   display: flex;
   flex-direction: row;  
@@ -176,33 +172,33 @@ a.action-button:active {
   width: 100%;
 }
 
-#twitch-stream-section h4 a {
+#watch-us-live h4 a {
   display: inline-block;
   padding-bottom: 3px;
   color: inherit !important;
   border-bottom: none;
 }
 
-#twitch-stream-section h4 {
+#watch-us-live h4 {
   margin: 10px 0;
 }
 
-#twitch-stream-section .streamer-overview {
+#watch-us-live .streamer-overview {
   margin-bottom: 50px;
   transform: none;
   transition: transform 150ms linear, opacity 300ms linear;
 }
 
-#twitch-stream-section .streamer-overview.not-live {
+#watch-us-live .streamer-overview.not-live {
   opacity: .5;
 }
 
-#twitch-stream-section .streamer-overview:hover {
+#watch-us-live .streamer-overview:hover {
   transform: scale(1.1);
   opacity: 1;
 }
 
-#twitch-stream-section .stream-title {
+#watch-us-live .stream-title {
   max-width: 100%;
   font-size: 80%;
 }
@@ -242,7 +238,7 @@ a.action-button:active {
     margin: 50px 0 30px 0;
   }
 
-  section.call-to-action {
+  #call-to-action section:not(.info) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -252,25 +248,25 @@ a.action-button:active {
     width: 100%;
   }
 
-  #twitch-stream-section .streamer-overview.live {
+  #watch-us-live .streamer-overview.live {
     min-width: 500px;
   }
 
-  #twitch-stream-section .streamer-overview.not-live {
+  #watch-us-live .streamer-overview.not-live {
     min-width: 350px;
   }
 
-  .has-live-streamers #call-to-action-container {
+  .has-live-streamers #call-to-action {
     flex-wrap: wrap;
   }
 
-  .has-live-streamers #call-to-action-container .learn-about-us {
+  .has-live-streamers #call-to-action .learn-about-us {
     min-width: 100%;
   }
 }
 
 @media (min-width: 1200px) {
-  #twitch-stream-section {
+  #watch-us-live {
     padding: 0;
   }
 }
@@ -284,7 +280,7 @@ a.action-button:active {
     display: none;
   }
 
-  .has-live-streamers #call-to-action-container .learn-about-us {
+  .has-live-streamers #call-to-action .learn-about-us {
     order: 1;
     margin-top: 100px;
   }

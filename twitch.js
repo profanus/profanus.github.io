@@ -7,20 +7,15 @@
     "echeloner",
     "embody1337",
     "frank_smiles",
-    "lassari86"
+    "lassari86", "itshafu"
   ];
 
-  var containerElement = document.getElementById("twitch-stream-section");
-  var callToActionElement = document.getElementById("call-to-action-container");
+  var callToActionElement = document.getElementById("call-to-action");
 
   // only support browsers with native promises (so no IE?)
   // progressive enhancement, so if you have them, we show the
   // stream section, otherwise we just don't.
   if (!window.Promise) {
-    if(containerElement) {
-      containerElement.parentNode.removeChild(containerElement);
-    }
-
     return;
   }
 
@@ -129,9 +124,16 @@
 
     var liveStreamCount = streams.live.length;
 
-    var title = "<h3><a name='watch-us-live'>Watch us Live</a>: " + liveStreamCount + " streaming now</h3>\r\n";
+    var title = "<h3>Watch us Live: " + liveStreamCount + " streaming now</h3>\r\n";
+
+    var containerElement = document.createElement("div");
+    containerElement.id = "watch-us-live";
+    containerElement.className = "container small loaded";
 
     containerElement.innerHTML = title + liveHtml + notLiveHtml;
+
+    var previousSibling = document.getElementById("quick-intro");
+    previousSibling.parentNode.insertBefore(containerElement, previousSibling.nextSibling);
 
     if (liveStreamCount) {
       var smallActionButton = document.createElement('section');
