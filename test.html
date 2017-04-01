@@ -5,6 +5,10 @@ title: Profanus - Ragnaros EU
 
 {% include call-to-action.html %}
 
+{% for post in site.posts %}
+  {{post.content | markdownify }}
+{% endfor %}
+
 <div class="container large">
   <section>
     <h3>Progress &amp; Fun</h3>
