@@ -7,7 +7,7 @@
     "echeloner",
     "embody1337",
     "frank_smiles",
-    "lassari86", "itshafu"
+    "lassari86"
   ];
 
   var callToActionElement = document.getElementById("call-to-action");
