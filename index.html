@@ -1,23 +1,15 @@
 ---
 layout: page
 title: Profanus - Ragnaros EU
-
-quick-intro: large
-wowprogress: small
-detailed-info: large
-social-matters: large contrast
 ---
 
 {% include call-to-action.html %}
 
-{% assign groups = site.posts | reverse | group_by:"homepage_section" %}
-{% for group in groups %}
-  <div class="container {{ page[group.name] }}" id="{{group.name}}">
-    {% for section in group.items %}
-      <section{% if section.section_class %} class="{{section.section_class}}"{% endif %}>
-        {{section.content}}
-      </section>
-    {% endfor %}
+{% assign section_containers = site.posts | reverse %}
+{% for section_container in section_containers %}
+  {% assign container_id = section_container.title | slugify %}
+  <div class="container {{ section_container.classes }}" id="{{ container_id }}">
+    {{ section_container.content }}
   </div>
 {% endfor %}
 
