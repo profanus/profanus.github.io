@@ -6,7 +6,7 @@
     {% include head.html %}
   </head>
 
-  {% assign page_class = page.path | remove: "index.html" | remove: "/" %}
+  {% assign page_class = page.path | remove: "index" | remove: ".html" | remove: "/" %}
 
   <body {% if page_class %}class="{{page_class}}-page"{% endif %}>
     <div class="page-title">
