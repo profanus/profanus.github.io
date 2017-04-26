@@ -4,7 +4,6 @@
   var twitchClientId = "qna9pt8piryxl8wfmitnwdm12lwj41";
   var streamers = [
     "cl0udbourne",
-    "echeloner",
     "embody1337",
     "frank_smiles",
     "lassari86"
