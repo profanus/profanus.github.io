@@ -6,9 +6,9 @@
     {% include head.html %}
   </head>
 
-  {% assign page_class = page.path | remove: "index" | remove: ".html" | remove: "/" %}
+  {% assign page_class = page.path | remove: ".html" | remove: "/" | replace: "index", "home" %}
 
-  <body {% if page_class %}class="{{page_class}}-page"{% endif %}>
+  <body {% if page_class %}class="{{page_class}}-page "{% endif %}>
     <div class="page-title">
       <h1 class="title"><a href="/">Profanus</a></h1>
       <h2 class="subtitle">Ragnaros EU</h2>
